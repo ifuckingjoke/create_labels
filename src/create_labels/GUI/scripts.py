@@ -3,6 +3,8 @@ from tkinter import messagebox
 import os, sys
 from urllib.parse import urlparse
 from core import Shortcut
+import ctypes
+from ctypes import wintypes
 
 
 class AppFunctions:
@@ -37,8 +39,13 @@ class AppFunctions:
         
         if not url.startswith(("http://", "https://")):
             url = "https://" + url
+        
+        buf = ctypes.create_unicode_buffer(wintypes.MAX_PATH)
+        ctypes.windll.shell32.SHGetFolderPathW(
+            None, 0x10, None, 0, buf
+        )
     
-        desktop = os.path.join(os.environ["USERPROFILE"], "Desktop")
+        desktop = buf.value
 
         title = Shortcut.get_title(url)
         path = os.path.join(desktop, f"{title}.url")
