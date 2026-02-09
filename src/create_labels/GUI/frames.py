@@ -20,7 +20,7 @@ class ContentFrame(ttk.Frame):
 
         self.title_label = ttk.Label(
             self,
-            text="CreateLables",
+            text="CreateLabels",
             font=self.title_font,
             foreground="black"
         )
