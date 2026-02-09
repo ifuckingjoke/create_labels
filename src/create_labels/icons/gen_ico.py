@@ -1,11 +1,18 @@
-import os
+import os, sys
 from PIL import Image, ImageDraw, ImageFont
 from .dict import FA_ICONS, DEFAULT_ICON
 from .render import GenIcon
 
-BASE_DIR = os.path.dirname(__file__)
-FONT_PATH = os.path.join(BASE_DIR, "fonts", "fa-brands-400.woff2")
-CACHE_DIR = os.path.join(BASE_DIR, "_cache")
+if getattr(sys, "frozen", False):
+    EXE_DIR = os.path.dirname(sys.executable)
+    RES_DIR =  os.path.dirname(os.path.abspath(__file__))
+else:
+    EXE_DIR = os.path.dirname(os.path.abspath(__file__))
+    RES_DIR = EXE_DIR
+
+
+FONT_PATH = os.path.join(RES_DIR, "fonts", "fa-brands-400.woff2")
+CACHE_DIR = os.path.join(EXE_DIR, "_cache")
 
 def get_ico(domain, size=64):
     char = FA_ICONS.get(domain, DEFAULT_ICON)

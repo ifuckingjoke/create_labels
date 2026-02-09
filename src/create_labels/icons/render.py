@@ -29,21 +29,49 @@ class GenIcon:
     
     @staticmethod
     def get_color(domain):
-        brand_colors = {
-            "youtube.com": "#FF0000",      # YouTube red
-            "github.com": "#181717",        # GitHub black
-            "google.com": "#4285F4",        # Google blue
-            "vk.com": "#0077FF",            # VK blue
-            "telegram.org": "#26A5E4",      # Telegram light blue
-            "x.com": "#1DA1F2",       # Twitter blue
-            "facebook.com": "#1877F2",      # Facebook blue
-            "instagram.com": "#E4405F",     # Instagram pink
-            "whatsapp.com": "#25D366",      # WhatsApp green
-            "discord.com": "#5865F2",       # Discord blurple
-            "reddit.com": "#FF4500",        # Reddit orange
-            "spotify.com": "#1DB954",       # Spotify green
-            "twitch.tv": "#9146FF",         # Twitch purple
-            "tiktok.com": "#000000",        # TikTok black
-            "linkedin.com": "#0A66C2",      # LinkedIn blue
-        }
-        return brand_colors.get(domain, "#000000")  # Черный по умолчанию
+
+        BRAND_COLORS = {
+        # Search / general
+        "google.com": "#4285F4",
+
+        # Social
+        "facebook.com": "#1877F2",
+        "instagram.com": "#E4405F",
+        "twitter.com": "#1DA1F2",
+        "x.com": "#1DA1F2",
+        "reddit.com": "#FF4500",
+        "linkedin.com": "#0A66C2",
+        "vk.com": "#0077FF",
+        "telegram.org": "#26A5E4",
+        "t.me": "#26A5E4",
+        "discord.com": "#5865F2",
+        "whatsapp.com": "#25D366",
+
+        # Video / media
+        "youtube.com": "#FF0000",
+        "twitch.tv": "#9146FF",
+        "vimeo.com": "#1AB7EA",
+        "spotify.com": "#1DB954",
+        "soundcloud.com": "#FF5500",
+
+        # Dev / IT
+        "github.com": "#181717",
+        "gitlab.com": "#FC6D26",
+        "bitbucket.org": "#0052CC",
+        "stackoverflow.com": "#F58025",
+        "npmjs.com": "#CB3837",
+        "python.org": "#3776AB",
+
+        # Shops / services
+        "amazon.com": "#FF9900",
+        "ebay.com": "#E53238",
+        "paypal.com": "#00457C",
+        "stripe.com": "#635BFF",
+
+        # Platforms / OS
+        "windows.com": "#0078D4",
+        "apple.com": "#000000",
+        "android.com": "#3DDC84",
+    }
+
+        return BRAND_COLORS.get(domain, "#FFFFFF")  # Черный по умолчанию
